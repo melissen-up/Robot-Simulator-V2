@@ -33,31 +33,25 @@ document.addEventListener("DOMContentLoaded", function() {
   let moveBtn = document.querySelector('#move-button')
 
   moveBtn.addEventListener('click', function(e){
-    let moves = movesContainer.getElementsByTagName("li")
-    
-
-    
-      // setTimeout(function(){ 
-      //   for(const element of moves){
-      //     move(element.textContent)}}, 2000)
+   
      
-        // for(const element of moves){
-        //   delay(element.textContent)
-        //   // let word = element.textContent
-        //   // setTimeout(function(){move(word)}, 2000)
-        // }
+        let timer = setInterval(movement, 500)
+
+        function movement(){
+          
+          if (movesContainer.querySelectorAll('li').length=== 0){
+            clearInterval(timer)
+           } else{
+            let li = movesContainer.querySelector("li")
+            move(li.textContent)
+            li.remove()
+           }
 
 
-        // var array = [1, 2, 3, 4, 5]
-        for(var i = 0; i < moves.length; i++) {
-           delay(i.textContent)
-         }
-        function delay(i) {
-          setTimeout(() => {
-            move(i)
-          }, 1000);
         }
-    ;
+        
 
+        
+      
   })
 });
