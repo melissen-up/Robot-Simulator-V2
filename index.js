@@ -33,25 +33,22 @@ document.addEventListener("DOMContentLoaded", function() {
   let moveBtn = document.querySelector('#move-button')
 
   moveBtn.addEventListener('click', function(e){
-   
-     
-        let timer = setInterval(movement, 500)
+  
+    let timer = setInterval(movement, 500)
 
-        function movement(){
+    function movement(){
           
-          if (movesContainer.querySelectorAll('li').length=== 0){
-            clearInterval(timer)
-           } else{
-            let li = movesContainer.querySelector("li")
-            move(li.textContent)
-            li.remove()
-           }
-
-
+      if (movesContainer.querySelectorAll('li').length=== 0){
+        clearInterval(timer)
+      } else{
+          let li = movesContainer.querySelector("li")
+          move(li.textContent)
+          li.remove()
         }
-        
+    } 
+  })
 
-        
-      
+  movesContainer.addEventListener('click', function(e){ 
+    e.target.remove()
   })
 });
